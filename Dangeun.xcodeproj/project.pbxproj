@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		D3DC466626A8548100E2C7C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC466526A8548100E2C7C6 /* AppDelegate.swift */; };
-		D3DC466A26A8548100E2C7C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC466926A8548100E2C7C6 /* ViewController.swift */; };
+		D3DC466A26A8548100E2C7C6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC466926A8548100E2C7C6 /* HomeViewController.swift */; };
 		D3DC466F26A8548100E2C7C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3DC466E26A8548100E2C7C6 /* Assets.xcassets */; };
 		D3DC467226A8548100E2C7C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3DC467026A8548100E2C7C6 /* LaunchScreen.storyboard */; };
 		D3DC467D26A8548100E2C7C6 /* DangeunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC467C26A8548100E2C7C6 /* DangeunTests.swift */; };
 		D3DC468826A8548100E2C7C6 /* DangeunUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC468726A8548100E2C7C6 /* DangeunUITests.swift */; };
+		D3DC46B126A8652400E2C7C6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC46B026A8652400E2C7C6 /* Coordinator.swift */; };
+		D3DC46B626A8658800E2C7C6 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC46B526A8658800E2C7C6 /* AppCoordinator.swift */; };
+		D3DC46BD26A865C800E2C7C6 /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC46BC26A865C800E2C7C6 /* AppCoordinatorTests.swift */; };
+		D3DC46C526A8681C00E2C7C6 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC46C426A8681C00E2C7C6 /* HomeCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +39,7 @@
 /* Begin PBXFileReference section */
 		D3DC466226A8548100E2C7C6 /* Dangeun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dangeun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DC466526A8548100E2C7C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D3DC466926A8548100E2C7C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D3DC466926A8548100E2C7C6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D3DC466E26A8548100E2C7C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3DC467126A8548100E2C7C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3DC467326A8548100E2C7C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +49,10 @@
 		D3DC468326A8548100E2C7C6 /* DangeunUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DangeunUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DC468726A8548100E2C7C6 /* DangeunUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangeunUITests.swift; sourceTree = "<group>"; };
 		D3DC468926A8548100E2C7C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3DC46B026A8652400E2C7C6 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		D3DC46B526A8658800E2C7C6 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		D3DC46BC26A865C800E2C7C6 /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
+		D3DC46C426A8681C00E2C7C6 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +112,7 @@
 		D3DC467B26A8548100E2C7C6 /* DangeunTests */ = {
 			isa = PBXGroup;
 			children = (
+				D3DC46BB26A8659A00E2C7C6 /* App */,
 				D3DC467C26A8548100E2C7C6 /* DangeunTests.swift */,
 				D3DC467E26A8548100E2C7C6 /* Info.plist */,
 			);
@@ -122,7 +131,8 @@
 		D3DC469826A85EDE00E2C7C6 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				D3DC466926A8548100E2C7C6 /* ViewController.swift */,
+				D3DC46CD26A8697300E2C7C6 /* Common */,
+				D3DC46C926A8695300E2C7C6 /* Home */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -134,8 +144,34 @@
 				D3DC466E26A8548100E2C7C6 /* Assets.xcassets */,
 				D3DC467026A8548100E2C7C6 /* LaunchScreen.storyboard */,
 				D3DC466526A8548100E2C7C6 /* AppDelegate.swift */,
+				D3DC46B526A8658800E2C7C6 /* AppCoordinator.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		D3DC46BB26A8659A00E2C7C6 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				D3DC46BC26A865C800E2C7C6 /* AppCoordinatorTests.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		D3DC46C926A8695300E2C7C6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D3DC466926A8548100E2C7C6 /* HomeViewController.swift */,
+				D3DC46C426A8681C00E2C7C6 /* HomeCoordinator.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		D3DC46CD26A8697300E2C7C6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D3DC46B026A8652400E2C7C6 /* Coordinator.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,8 +303,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3DC466A26A8548100E2C7C6 /* ViewController.swift in Sources */,
+				D3DC46B626A8658800E2C7C6 /* AppCoordinator.swift in Sources */,
+				D3DC466A26A8548100E2C7C6 /* HomeViewController.swift in Sources */,
+				D3DC46C526A8681C00E2C7C6 /* HomeCoordinator.swift in Sources */,
 				D3DC466626A8548100E2C7C6 /* AppDelegate.swift in Sources */,
+				D3DC46B126A8652400E2C7C6 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3DC467D26A8548100E2C7C6 /* DangeunTests.swift in Sources */,
+				D3DC46BD26A865C800E2C7C6 /* AppCoordinatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
