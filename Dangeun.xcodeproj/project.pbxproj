@@ -95,12 +95,8 @@
 		D3DC466426A8548100E2C7C6 /* Dangeun */ = {
 			isa = PBXGroup;
 			children = (
+				D3DC46A826A8638400E2C7C6 /* App */,
 				D3DC469826A85EDE00E2C7C6 /* Presentation */,
-				D3DC466526A8548100E2C7C6 /* AppDelegate.swift */,
-				D3DC466926A8548100E2C7C6 /* ViewController.swift */,
-				D3DC466E26A8548100E2C7C6 /* Assets.xcassets */,
-				D3DC467026A8548100E2C7C6 /* LaunchScreen.storyboard */,
-				D3DC467326A8548100E2C7C6 /* Info.plist */,
 			);
 			path = Dangeun;
 			sourceTree = "<group>";
@@ -126,8 +122,20 @@
 		D3DC469826A85EDE00E2C7C6 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				D3DC466926A8548100E2C7C6 /* ViewController.swift */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		D3DC46A826A8638400E2C7C6 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				D3DC467326A8548100E2C7C6 /* Info.plist */,
+				D3DC466E26A8548100E2C7C6 /* Assets.xcassets */,
+				D3DC467026A8548100E2C7C6 /* LaunchScreen.storyboard */,
+				D3DC466526A8548100E2C7C6 /* AppDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -430,7 +438,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6YDND8WP69;
-				INFOPLIST_FILE = Dangeun/Info.plist;
+				INFOPLIST_FILE = Dangeun/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,7 +458,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6YDND8WP69;
-				INFOPLIST_FILE = Dangeun/Info.plist;
+				INFOPLIST_FILE = Dangeun/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
