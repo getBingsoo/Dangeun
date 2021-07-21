@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D3DC466626A8548100E2C7C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC466526A8548100E2C7C6 /* AppDelegate.swift */; };
-		D3DC466826A8548100E2C7C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC466726A8548100E2C7C6 /* SceneDelegate.swift */; };
 		D3DC466A26A8548100E2C7C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC466926A8548100E2C7C6 /* ViewController.swift */; };
-		D3DC466D26A8548100E2C7C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3DC466B26A8548100E2C7C6 /* Main.storyboard */; };
 		D3DC466F26A8548100E2C7C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3DC466E26A8548100E2C7C6 /* Assets.xcassets */; };
 		D3DC467226A8548100E2C7C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3DC467026A8548100E2C7C6 /* LaunchScreen.storyboard */; };
 		D3DC467D26A8548100E2C7C6 /* DangeunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC467C26A8548100E2C7C6 /* DangeunTests.swift */; };
@@ -37,9 +35,7 @@
 /* Begin PBXFileReference section */
 		D3DC466226A8548100E2C7C6 /* Dangeun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dangeun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DC466526A8548100E2C7C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D3DC466726A8548100E2C7C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D3DC466926A8548100E2C7C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D3DC466C26A8548100E2C7C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D3DC466E26A8548100E2C7C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3DC467126A8548100E2C7C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3DC467326A8548100E2C7C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,10 +95,9 @@
 		D3DC466426A8548100E2C7C6 /* Dangeun */ = {
 			isa = PBXGroup;
 			children = (
+				D3DC469826A85EDE00E2C7C6 /* Presentation */,
 				D3DC466526A8548100E2C7C6 /* AppDelegate.swift */,
-				D3DC466726A8548100E2C7C6 /* SceneDelegate.swift */,
 				D3DC466926A8548100E2C7C6 /* ViewController.swift */,
-				D3DC466B26A8548100E2C7C6 /* Main.storyboard */,
 				D3DC466E26A8548100E2C7C6 /* Assets.xcassets */,
 				D3DC467026A8548100E2C7C6 /* LaunchScreen.storyboard */,
 				D3DC467326A8548100E2C7C6 /* Info.plist */,
@@ -126,6 +121,13 @@
 				D3DC468926A8548100E2C7C6 /* Info.plist */,
 			);
 			path = DangeunUITests;
+			sourceTree = "<group>";
+		};
+		D3DC469826A85EDE00E2C7C6 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +235,6 @@
 			files = (
 				D3DC467226A8548100E2C7C6 /* LaunchScreen.storyboard in Resources */,
 				D3DC466F26A8548100E2C7C6 /* Assets.xcassets in Resources */,
-				D3DC466D26A8548100E2C7C6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +261,6 @@
 			files = (
 				D3DC466A26A8548100E2C7C6 /* ViewController.swift in Sources */,
 				D3DC466626A8548100E2C7C6 /* AppDelegate.swift in Sources */,
-				D3DC466826A8548100E2C7C6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +296,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D3DC466B26A8548100E2C7C6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D3DC466C26A8548100E2C7C6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D3DC467026A8548100E2C7C6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -439,6 +431,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6YDND8WP69;
 				INFOPLIST_FILE = Dangeun/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,6 +451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6YDND8WP69;
 				INFOPLIST_FILE = Dangeun/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
