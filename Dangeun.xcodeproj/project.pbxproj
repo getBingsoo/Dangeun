@@ -17,6 +17,8 @@
 		D3DC46B626A8658800E2C7C6 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC46B526A8658800E2C7C6 /* AppCoordinator.swift */; };
 		D3DC46BD26A865C800E2C7C6 /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC46BC26A865C800E2C7C6 /* AppCoordinatorTests.swift */; };
 		D3DC46C526A8681C00E2C7C6 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC46C426A8681C00E2C7C6 /* HomeCoordinator.swift */; };
+		D3DC46DB26A8A1C100E2C7C6 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC46DA26A8A1C000E2C7C6 /* TopBarView.swift */; };
+		D3DC46E026A8A89E00E2C7C6 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC46DF26A8A89E00E2C7C6 /* ProductCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		D3DC46B526A8658800E2C7C6 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		D3DC46BC26A865C800E2C7C6 /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
 		D3DC46C426A8681C00E2C7C6 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		D3DC46DA26A8A1C000E2C7C6 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
+		D3DC46DF26A8A89E00E2C7C6 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +166,8 @@
 			children = (
 				D3DC466926A8548100E2C7C6 /* HomeViewController.swift */,
 				D3DC46C426A8681C00E2C7C6 /* HomeCoordinator.swift */,
+				D3DC46DA26A8A1C000E2C7C6 /* TopBarView.swift */,
+				D3DC46DF26A8A89E00E2C7C6 /* ProductCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -307,6 +313,8 @@
 				D3DC466A26A8548100E2C7C6 /* HomeViewController.swift in Sources */,
 				D3DC46C526A8681C00E2C7C6 /* HomeCoordinator.swift in Sources */,
 				D3DC466626A8548100E2C7C6 /* AppDelegate.swift in Sources */,
+				D3DC46DB26A8A1C100E2C7C6 /* TopBarView.swift in Sources */,
+				D3DC46E026A8A89E00E2C7C6 /* ProductCell.swift in Sources */,
 				D3DC46B126A8652400E2C7C6 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
