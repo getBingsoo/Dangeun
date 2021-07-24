@@ -6,10 +6,18 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 class DataManager {
 
-    func fetchItems() {
-
+    func fetchProducts() -> Driver<[Product]> {
+        return Driver<[Product]>.just(
+            [
+                Product(name: "oo", content: "oooo")
+                , Product(name: "oo2", content: "oooo")
+                , Product(name: "oo3", content: "oooo")
+            ]
+        )
     }
 }

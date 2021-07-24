@@ -42,4 +42,8 @@ class ProductCell: UITableViewCell {
             , titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
         ])
     }
+
+    func configureCell(by product: Product) {
+        titleLabel.text = product.name
+    }
 }

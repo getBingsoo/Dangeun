@@ -6,11 +6,18 @@
 //
 
 import Foundation
+import RxCocoa
 
 class HomeViewModel: ViewModelType {
 
+    let dataManager = DataManager()
+
     func transform(input: Input) -> Output {
-        return Output()
+        let products = dataManager.fetchProducts()
+
+        return Output(
+            products: products
+        )
     }
 }
 
@@ -21,6 +28,6 @@ extension HomeViewModel {
     }
 
     struct Output {
-
+        let products: Driver<[Product]>
     }
 }

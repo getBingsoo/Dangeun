@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class HomeViewController: UIViewController {
+
+    let viewModel = HomeViewModel()
+    let disposeBag = DisposeBag()
 
     let topBar = TopBarView()
     let tableView = UITableView()
@@ -16,7 +21,26 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         setTableView()
+
+        bind()
     }
+
+    private func bind() {
+        let input = HomeViewModel.Input()
+        let output = viewModel.transform(input: input)
+
+        output.products.drive(
+            tableView.rx.items(
+                cellIdentifier: ProductCell.reuseIdentifier
+                , cellType: ProductCell.self
+            )
+        ) { _, element, cell in
+            cell.configureCell(by: element)
+        }.disposed(by: disposeBag)
+    }
+}
+
+extension HomeViewController {
 
     private func configureUI() {
         self.view.backgroundColor = .white
@@ -42,23 +66,9 @@ class HomeViewController: UIViewController {
     }
 
     private func setTableView() {
-        self.tableView.register(ProductCell.self, forCellReuseIdentifier: "ProductCell")
-        self.tableView.dataSource = self
-    }
-}
-
-extension HomeViewController: UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath) as? ProductCell {
-            cell.titleLabel.text = "oo"
-            return cell
-        } else {
-            return UITableViewCell()
-        }
+        self.tableView.register(
+            ProductCell.self
+            , forCellReuseIdentifier: ProductCell.reuseIdentifier
+        )
     }
 }

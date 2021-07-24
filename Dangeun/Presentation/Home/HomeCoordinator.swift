@@ -8,6 +8,7 @@
 import UIKit
 
 class HomeCoordinator: Coordinator {
+
     var childCoordinators: [Coordinator]
     var navigationController: UINavigationController
 
@@ -20,5 +21,4 @@ class HomeCoordinator: Coordinator {
         let vc = HomeViewController()
         navigationController.pushViewController(vc, animated: true)
     }
-
 }

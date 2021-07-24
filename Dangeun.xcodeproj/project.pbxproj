@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,8 @@
 		8D484F3526AC1A1A009F1B54 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D484F3426AC1A1A009F1B54 /* HomeViewModel.swift */; };
 		8D484F3726AC1A8A009F1B54 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D484F3626AC1A8A009F1B54 /* HomeViewModelTests.swift */; };
 		8D484F3A26AC2400009F1B54 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D484F3926AC2400009F1B54 /* DataManager.swift */; };
+		8D484F3C26AC2D6A009F1B54 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D484F3B26AC2D6A009F1B54 /* Product.swift */; };
+		8D484F3E26AC2E26009F1B54 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D484F3D26AC2E26009F1B54 /* NSObject+Extension.swift */; };
 		D3DC466626A8548100E2C7C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC466526A8548100E2C7C6 /* AppDelegate.swift */; };
 		D3DC466A26A8548100E2C7C6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC466926A8548100E2C7C6 /* HomeViewController.swift */; };
 		D3DC466F26A8548100E2C7C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3DC466E26A8548100E2C7C6 /* Assets.xcassets */; };
@@ -56,6 +58,8 @@
 		8D484F3426AC1A1A009F1B54 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		8D484F3626AC1A8A009F1B54 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		8D484F3926AC2400009F1B54 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		8D484F3B26AC2D6A009F1B54 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		8D484F3D26AC2E26009F1B54 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		C6359365D4E5FFBD07E9300F /* Pods_DangeunTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DangeunTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DC466226A8548100E2C7C6 /* Dangeun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dangeun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DC466526A8548100E2C7C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,7 +131,6 @@
 				3F472C2D0AACD42FC1058D64 /* Pods-DangeunTests.debug.xcconfig */,
 				2824BEEC81074B0575260CE3 /* Pods-DangeunTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -151,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				8D484F3926AC2400009F1B54 /* DataManager.swift */,
+				8D484F3B26AC2D6A009F1B54 /* Product.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -253,6 +257,7 @@
 			children = (
 				D3DC46B026A8652400E2C7C6 /* Coordinator.swift */,
 				8D484F2E26AC19C6009F1B54 /* ViewModelType.swift */,
+				8D484F3D26AC2E26009F1B54 /* NSObject+Extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -497,8 +502,10 @@
 				D3DC46B626A8658800E2C7C6 /* AppCoordinator.swift in Sources */,
 				8D484F3A26AC2400009F1B54 /* DataManager.swift in Sources */,
 				8D484F3526AC1A1A009F1B54 /* HomeViewModel.swift in Sources */,
+				8D484F3E26AC2E26009F1B54 /* NSObject+Extension.swift in Sources */,
 				D3DC466A26A8548100E2C7C6 /* HomeViewController.swift in Sources */,
 				D3DC46C526A8681C00E2C7C6 /* HomeCoordinator.swift in Sources */,
+				8D484F3C26AC2D6A009F1B54 /* Product.swift in Sources */,
 				D3DC466626A8548100E2C7C6 /* AppDelegate.swift in Sources */,
 				8D484F2F26AC19C6009F1B54 /* ViewModelType.swift in Sources */,
 				D3DC46DB26A8A1C100E2C7C6 /* TopBarView.swift in Sources */,
