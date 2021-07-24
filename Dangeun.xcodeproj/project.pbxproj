@@ -10,6 +10,7 @@
 		8D484F2F26AC19C6009F1B54 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D484F2E26AC19C6009F1B54 /* ViewModelType.swift */; };
 		8D484F3526AC1A1A009F1B54 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D484F3426AC1A1A009F1B54 /* HomeViewModel.swift */; };
 		8D484F3726AC1A8A009F1B54 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D484F3626AC1A8A009F1B54 /* HomeViewModelTests.swift */; };
+		8D484F3A26AC2400009F1B54 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D484F3926AC2400009F1B54 /* DataManager.swift */; };
 		D3DC466626A8548100E2C7C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC466526A8548100E2C7C6 /* AppDelegate.swift */; };
 		D3DC466A26A8548100E2C7C6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC466926A8548100E2C7C6 /* HomeViewController.swift */; };
 		D3DC466F26A8548100E2C7C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3DC466E26A8548100E2C7C6 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		8D484F2E26AC19C6009F1B54 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		8D484F3426AC1A1A009F1B54 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		8D484F3626AC1A8A009F1B54 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		8D484F3926AC2400009F1B54 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		D3DC466226A8548100E2C7C6 /* Dangeun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dangeun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DC466526A8548100E2C7C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3DC466926A8548100E2C7C6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,14 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		8D484F3826AC23D5009F1B54 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8D484F3926AC2400009F1B54 /* DataManager.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		D3DC465926A8548100E2C7C6 = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +139,7 @@
 		D3DC466426A8548100E2C7C6 /* Dangeun */ = {
 			isa = PBXGroup;
 			children = (
+				8D484F3826AC23D5009F1B54 /* Data */,
 				D3DC46A826A8638400E2C7C6 /* App */,
 				D3DC469826A85EDE00E2C7C6 /* Presentation */,
 			);
@@ -335,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3DC46B626A8658800E2C7C6 /* AppCoordinator.swift in Sources */,
+				8D484F3A26AC2400009F1B54 /* DataManager.swift in Sources */,
 				8D484F3526AC1A1A009F1B54 /* HomeViewModel.swift in Sources */,
 				D3DC466A26A8548100E2C7C6 /* HomeViewController.swift in Sources */,
 				D3DC46C526A8681C00E2C7C6 /* HomeCoordinator.swift in Sources */,
