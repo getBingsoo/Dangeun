@@ -38,6 +38,7 @@ class HomeViewController: UIViewController {
             cell.configureCell(by: element)
         }.disposed(by: disposeBag)
     }
+
 }
 
 extension HomeViewController {
