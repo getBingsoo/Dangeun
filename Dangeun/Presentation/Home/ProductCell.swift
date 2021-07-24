@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ProductCell: UITableViewCell {
 
-    let productImage = UIImageView()
+    let productImage = CustomImageView()
     let titleLabel = UILabel()
+    let locationLabel = UILabel()
+    let priceLabel = UILabel()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -26,8 +30,9 @@ class ProductCell: UITableViewCell {
         productImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             productImage.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10)
-            , productImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10)
-            , productImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
+            , productImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            , productImage.heightAnchor.constraint(equalToConstant: 100)
+            , productImage.widthAnchor.constraint(equalToConstant: 100)
         ])
         if #available(iOS 13.0, *) {
             productImage.image = UIImage(systemName: "doc")
@@ -39,11 +44,30 @@ class ProductCell: UITableViewCell {
         NSLayoutConstraint.activate([
             titleLabel.leftAnchor.constraint(equalTo: productImage.rightAnchor, constant: 10)
             , titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10)
-            , titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
+            , titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10)
+        ])
+
+        contentView.addSubview(locationLabel)
+        locationLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            locationLabel.leftAnchor.constraint(equalTo: titleLabel.leftAnchor)
+            , locationLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10)
+            , locationLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10)
+        ])
+
+        contentView.addSubview(priceLabel)
+        priceLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            priceLabel.leftAnchor.constraint(equalTo: locationLabel.leftAnchor)
+            , priceLabel.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: 10)
+            , priceLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10)
         ])
     }
 
     func configureCell(by product: Product) {
         titleLabel.text = product.title
+        productImage.loadImage(from: product.images[0])
+        locationLabel.text = product.location
+        priceLabel.text = "\(product.price)원"
     }
 }

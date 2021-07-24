@@ -66,9 +66,11 @@ extension HomeViewController {
     }
 
     private func setTableView() {
-        self.tableView.register(
+        tableView.register(
             ProductCell.self
             , forCellReuseIdentifier: ProductCell.reuseIdentifier
         )
+
+        tableView.rowHeight = 120
     }
 }
