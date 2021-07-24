@@ -12,12 +12,23 @@ import RxCocoa
 class DataManager {
 
     func fetchProducts() -> Driver<[Product]> {
-        return Driver<[Product]>.just(
-            [
-                Product(name: "oo", content: "oooo")
-                , Product(name: "oo2", content: "oooo")
-                , Product(name: "oo3", content: "oooo")
-            ]
-        )
+        guard let path = Bundle.main.path(forResource: "DataExample", ofType: "json") else {
+            return Driver<[Product]>.empty()
+        }
+
+        guard let jsonString = try? String(contentsOfFile: path)
+              , let data = jsonString.data(using: .utf8) else {
+            return Driver<[Product]>.empty()
+        }
+
+        do {
+            let decoder = JSONDecoder()
+            let result = try decoder.decode(ProductResult.self, from: data)
+            let data = result.data
+            return Driver<[Product]>.just(data)
+        } catch {
+            print(error) // todo: 수정
+            return Driver<[Product]>.empty()
+        }
     }
 }

@@ -44,6 +44,6 @@ class ProductCell: UITableViewCell {
     }
 
     func configureCell(by product: Product) {
-        titleLabel.text = product.name
+        titleLabel.text = product.title
     }
 }

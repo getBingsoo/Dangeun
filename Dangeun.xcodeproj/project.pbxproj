@@ -16,6 +16,7 @@
 		8D484F3A26AC2400009F1B54 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D484F3926AC2400009F1B54 /* DataManager.swift */; };
 		8D484F3C26AC2D6A009F1B54 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D484F3B26AC2D6A009F1B54 /* Product.swift */; };
 		8D484F3E26AC2E26009F1B54 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D484F3D26AC2E26009F1B54 /* NSObject+Extension.swift */; };
+		8D484F4026AC3C00009F1B54 /* DataExample.json in Resources */ = {isa = PBXBuildFile; fileRef = 8D484F3F26AC3C00009F1B54 /* DataExample.json */; };
 		D3DC466626A8548100E2C7C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC466526A8548100E2C7C6 /* AppDelegate.swift */; };
 		D3DC466A26A8548100E2C7C6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC466926A8548100E2C7C6 /* HomeViewController.swift */; };
 		D3DC466F26A8548100E2C7C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3DC466E26A8548100E2C7C6 /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		8D484F3926AC2400009F1B54 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		8D484F3B26AC2D6A009F1B54 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		8D484F3D26AC2E26009F1B54 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
+		8D484F3F26AC3C00009F1B54 /* DataExample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DataExample.json; sourceTree = "<group>"; };
 		C6359365D4E5FFBD07E9300F /* Pods_DangeunTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DangeunTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DC466226A8548100E2C7C6 /* Dangeun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dangeun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DC466526A8548100E2C7C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				D3DC467026A8548100E2C7C6 /* LaunchScreen.storyboard */,
 				D3DC466526A8548100E2C7C6 /* AppDelegate.swift */,
 				D3DC46B526A8658800E2C7C6 /* AppCoordinator.swift */,
+				8D484F3F26AC3C00009F1B54 /* DataExample.json */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3DC467226A8548100E2C7C6 /* LaunchScreen.storyboard in Resources */,
+				8D484F4026AC3C00009F1B54 /* DataExample.json in Resources */,
 				D3DC466F26A8548100E2C7C6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

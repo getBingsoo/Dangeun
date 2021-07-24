@@ -7,8 +7,15 @@
 
 import Foundation
 
-struct Product {
-
-    let name: String
+struct Product: Codable {
+    let title: String
+    let price: String
+    let location: String
     let content: String
+    let images: [String]
+}
+
+struct ProductResult: Codable {
+    let code: String
+    let data: [Product]
 }

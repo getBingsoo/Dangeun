@@ -13,7 +13,7 @@ class HomeViewModelTests: XCTestCase {
     var sut: HomeViewModel!
 
     override func setUp() {
-        sut  = HomeViewModel()
+        sut = HomeViewModel()
     }
 
     override func tearDown() {
