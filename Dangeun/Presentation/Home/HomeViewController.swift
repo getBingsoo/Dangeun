@@ -74,7 +74,6 @@ extension HomeViewController {
 
     private func configureUI() {
         self.view.backgroundColor = .white
-//        self.navigationController?.isNavigationBarHidden = true
 
         self.view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -92,7 +91,9 @@ extension HomeViewController {
         // add navigation buttons
         let searchButton = UIButton()
         let menuButton = UIButton()
+        menuButton.isHidden = true
         let alarmButton = UIButton()
+        alarmButton.isHidden = true
         if #available(iOS 13.0, *) {
             searchButton.setImage(UIImage(systemName: "magnifyingglass")!, for: .normal)
             menuButton.setImage(UIImage(systemName: "list.dash")!, for: .normal)

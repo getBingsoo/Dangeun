@@ -8,10 +8,13 @@
 import Foundation
 
 struct Product: Codable {
+    let nickName: String
+    let category: String
     let title: String
     let price: String
     let location: String
     let content: String
+    let link: String
     let images: [String]
 }
 

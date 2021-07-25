@@ -12,9 +12,24 @@ import RxCocoa
 class ProductCell: UITableViewCell {
 
     let productImage = CustomImageView()
-    let titleLabel = UILabel()
-    let locationLabel = UILabel()
-    let priceLabel = UILabel()
+    lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 16)
+        return label
+    }()
+
+    lazy var locationLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 14)
+        label.textColor = .gray
+        return label
+    }()
+
+    lazy var priceLabel: UILabel = {
+        let label = UILabel()
+        label.font = .boldSystemFont(ofSize: 15)
+        return label
+    }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -27,7 +42,7 @@ class ProductCell: UITableViewCell {
 
     private func configureUI() {
         self.selectionStyle = .none
-        
+
         contentView.addSubview(productImage)
         productImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -70,6 +85,6 @@ class ProductCell: UITableViewCell {
         titleLabel.text = product.title
         productImage.loadImage(from: product.images[0])
         locationLabel.text = product.location
-        priceLabel.text = "\(product.price)원"
+        priceLabel.text = product.price
     }
 }

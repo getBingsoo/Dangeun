@@ -6,16 +6,77 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ProductDetailViewController: UIViewController {
 
     var viewModel: ProductDetailViewModel
 
-    let productImage = CustomImageView()
-    let detailStackView = UIStackView()
-    let tableView = UITableView()
+    var viewFirstLoaded = PublishRelay<Void>()
+    let disposeBag = DisposeBag()
 
-    let nickNameLabel = UILabel()
+    let productImage: CustomImageView = {
+        let iv = CustomImageView()
+        iv.contentMode = .scaleAspectFill
+        iv.layer.masksToBounds = true
+        return iv
+    }()
+
+    lazy var userIcon: UIImageView = {
+        let iv = UIImageView()
+        iv.backgroundColor = .lightGray
+        iv.layer.cornerRadius = 20
+        return iv
+    }()
+
+    lazy var nickNameLabel: UILabel = {
+        let label = UILabel()
+        label.font = .boldSystemFont(ofSize: 16)
+        label.numberOfLines = 0
+        return label
+    }()
+
+    lazy var locationLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 14)
+        label.numberOfLines = 0
+        return label
+    }()
+
+    lazy var userView: UIView = {
+        let view = UIView()
+        return view
+    }()
+
+    lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = .boldSystemFont(ofSize: 18)
+        label.numberOfLines = 0
+        return label
+    }()
+
+    lazy var contentLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 15)
+        label.numberOfLines = 0
+        return label
+    }()
+
+    lazy var priceLabel: UILabel = {
+        let label = UILabel()
+        label.font = .boldSystemFont(ofSize: 15)
+        label.numberOfLines = 0
+        return label
+    }()
+
+    lazy var productView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.spacing = 10
+        return stackView
+    }()
 
     init(viewModel: ProductDetailViewModel) {
         self.viewModel = viewModel
@@ -30,7 +91,9 @@ class ProductDetailViewController: UIViewController {
         super.viewDidLoad()
 
         configureUI()
-        configureOutput()
+        bind()
+
+        viewFirstLoaded.accept(())
     }
 
     func configureUI() {
@@ -50,46 +113,75 @@ class ProductDetailViewController: UIViewController {
             , productImage.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.5)
         ])
 
-        self.view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(userView)
+        userView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: productImage.bottomAnchor)
-            , tableView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 20)
-            , tableView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -20)
-            , tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+            userView.topAnchor.constraint(equalTo: productImage.bottomAnchor, constant: 10)
+            , userView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 20)
+            , userView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -20)
         ])
 
-        tableView.register(ProductDetailUserCell.self, forCellReuseIdentifier: ProductDetailUserCell.reuseIdentifier)
-        tableView.register(ProductDetailInfoCell.self, forCellReuseIdentifier: ProductDetailInfoCell.reuseIdentifier)
-        tableView.dataSource = self
-        tableView.rowHeight = UITableView.automaticDimension
+        self.view.addSubview(productView)
+        productView.addArrangedSubview(titleLabel)
+        productView.addArrangedSubview(contentLabel)
+        productView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            productView.topAnchor.constraint(equalTo: userView.bottomAnchor)
+            , productView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 20)
+            , productView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -20)
+        ])
+
+
+        userView.addSubview(userIcon)
+        userIcon.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            userIcon.centerYAnchor.constraint(equalTo: userView.centerYAnchor)
+            , userIcon.leftAnchor.constraint(equalTo: userView.leftAnchor)
+            , userIcon.widthAnchor.constraint(equalToConstant: 40)
+            , userIcon.heightAnchor.constraint(equalToConstant: 40)
+        ])
+
+        userView.addSubview(nickNameLabel)
+        nickNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            nickNameLabel.topAnchor.constraint(equalTo: userView.topAnchor, constant: 20)
+            , nickNameLabel.leftAnchor.constraint(equalTo: userIcon.rightAnchor, constant: 10)
+        ])
+
+        userView.addSubview(locationLabel)
+        locationLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            locationLabel.topAnchor.constraint(equalTo: nickNameLabel.bottomAnchor, constant: 5)
+            , locationLabel.bottomAnchor.constraint(equalTo: userView.bottomAnchor, constant: -20)
+            , locationLabel.leftAnchor.constraint(equalTo: userIcon.rightAnchor, constant: 10)
+        ])
+
+        self.view.addSubview(priceLabel)
+        priceLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            priceLabel.topAnchor.constraint(equalTo: productView.bottomAnchor, constant: 5)
+            , priceLabel.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+            , priceLabel.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 20)
+        ])
+        priceLabel.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
     }
 
-    func configureOutput() {
-        productImage.loadImage(from: viewModel.product.images[0])
-        nickNameLabel.text = viewModel.product.title
-    }
-}
+    func bind() {
+        let input = ProductDetailViewModel.Input(viewFirstLoaded: viewFirstLoaded)
+        let output = viewModel.transform(input: input)
 
-extension ProductDetailViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-    }
+        output.product.drive(onNext: { [weak self] product in
+            guard let self = self else { return }
+            self.nickNameLabel.text = product.nickName
+            self.locationLabel.text = product.location
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row {
-            case 0:
-                let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailUserCell.reuseIdentifier, for: indexPath) as! ProductDetailUserCell
+            self.titleLabel.text = product.title
+            self.contentLabel.text = product.content
+            self.productImage.loadImage(from: product.images[0])
 
-                cell.configureCell(product: viewModel.product)
-
-                return cell
-            default:
-                let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailInfoCell.reuseIdentifier, for: indexPath) as! ProductDetailInfoCell
-                cell.configureCell(product: viewModel.product)
-
-                return cell
-        }
+            self.priceLabel.text = "가격 \(product.price)"
+        }).disposed(by: disposeBag)
     }
 }
