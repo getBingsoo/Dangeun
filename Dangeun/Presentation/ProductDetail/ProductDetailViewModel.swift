@@ -17,7 +17,6 @@ class ProductDetailViewModel: ViewModelType {
 
     init(product: Product) {
         self.product.accept(product)
-//        self.product = product
     }
 
     func transform(input: Input) -> Output {

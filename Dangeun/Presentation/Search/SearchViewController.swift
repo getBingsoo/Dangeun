@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+/// 홈 -> 검색 누르면 나오는, 검색창이 있는 뷰컨트롤러
 class SearchViewController: UIViewController {
 
     var viewModel: SearchViewModel

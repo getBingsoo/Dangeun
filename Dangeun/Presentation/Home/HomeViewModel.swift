@@ -23,9 +23,7 @@ class HomeViewModel: ViewModelType {
 
 extension HomeViewModel {
 
-    struct Input {
-
-    }
+    struct Input { }
 
     struct Output {
         let products: Driver<[Product]>

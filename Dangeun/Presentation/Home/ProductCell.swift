@@ -11,6 +11,7 @@ import RxCocoa
 
 class ProductCell: UITableViewCell {
 
+    // MARK: - views
     let productImage = CustomImageView()
     lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -31,6 +32,7 @@ class ProductCell: UITableViewCell {
         return label
     }()
 
+    // MARK: - lifecycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureUI()
@@ -40,6 +42,7 @@ class ProductCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - methods
     private func configureUI() {
         self.selectionStyle = .none
 

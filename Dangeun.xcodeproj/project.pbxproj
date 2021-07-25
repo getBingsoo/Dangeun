@@ -10,6 +10,7 @@
 		05A9E7C96DDE248DE7047090 /* Pods_Dangeun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB48C41AD8F5295235C1570 /* Pods_Dangeun.framework */; };
 		0AD9700A0FC4C555821A02AC /* Pods_Dangeun_DangeunUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46E37FDF9DD18C8EC8528638 /* Pods_Dangeun_DangeunUITests.framework */; };
 		16637F2642D275FC7A101E21 /* Pods_DangeunTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6359365D4E5FFBD07E9300F /* Pods_DangeunTests.framework */; };
+		8D03DFA226AE1C6B00F25B57 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D03DFA126AE1C6B00F25B57 /* Network.swift */; };
 		8D484F2F26AC19C6009F1B54 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D484F2E26AC19C6009F1B54 /* ViewModelType.swift */; };
 		8D484F3526AC1A1A009F1B54 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D484F3426AC1A1A009F1B54 /* HomeViewModel.swift */; };
 		8D484F3726AC1A8A009F1B54 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D484F3626AC1A8A009F1B54 /* HomeViewModelTests.swift */; };
@@ -62,6 +63,7 @@
 		708645A347C46E231E998A23 /* Pods-Dangeun-DangeunUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dangeun-DangeunUITests.debug.xcconfig"; path = "Target Support Files/Pods-Dangeun-DangeunUITests/Pods-Dangeun-DangeunUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		708AFF4FE241FD37EFEA0542 /* Pods-Dangeun-DangeunUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dangeun-DangeunUITests.release.xcconfig"; path = "Target Support Files/Pods-Dangeun-DangeunUITests/Pods-Dangeun-DangeunUITests.release.xcconfig"; sourceTree = "<group>"; };
 		74F1C90C364E810E4A97658F /* Pods-Dangeun.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dangeun.debug.xcconfig"; path = "Target Support Files/Pods-Dangeun/Pods-Dangeun.debug.xcconfig"; sourceTree = "<group>"; };
+		8D03DFA126AE1C6B00F25B57 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		8D484F2E26AC19C6009F1B54 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		8D484F3426AC1A1A009F1B54 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		8D484F3626AC1A8A009F1B54 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
@@ -150,6 +152,25 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		8D03DFA026AE1C5900F25B57 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8D03DFA126AE1C6B00F25B57 /* Network.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8D03DFA326AE218400F25B57 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8D484F4126AC3F96009F1B54 /* CustomImageView.swift */,
+				8D484F4326AC3FE5009F1B54 /* ImageLoader.swift */,
+				8DDE4A5026AD33B7006F9461 /* UIView+Extension.swift */,
+				8D484F3D26AC2E26009F1B54 /* NSObject+Extension.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		8D484F3026AC19F9009F1B54 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +247,8 @@
 		D3DC466426A8548100E2C7C6 /* Dangeun */ = {
 			isa = PBXGroup;
 			children = (
+				8D03DFA326AE218400F25B57 /* Common */,
+				8D03DFA026AE1C5900F25B57 /* Network */,
 				8D484F3826AC23D5009F1B54 /* Data */,
 				D3DC46A826A8638400E2C7C6 /* App */,
 				D3DC469826A85EDE00E2C7C6 /* Presentation */,
@@ -302,10 +325,6 @@
 			children = (
 				D3DC46B026A8652400E2C7C6 /* Coordinator.swift */,
 				8D484F2E26AC19C6009F1B54 /* ViewModelType.swift */,
-				8D484F3D26AC2E26009F1B54 /* NSObject+Extension.swift */,
-				8D484F4126AC3F96009F1B54 /* CustomImageView.swift */,
-				8D484F4326AC3FE5009F1B54 /* ImageLoader.swift */,
-				8DDE4A5026AD33B7006F9461 /* UIView+Extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -558,6 +577,7 @@
 				D3DC46C526A8681C00E2C7C6 /* HomeCoordinator.swift in Sources */,
 				8D484F3C26AC2D6A009F1B54 /* Product.swift in Sources */,
 				D3DC466626A8548100E2C7C6 /* AppDelegate.swift in Sources */,
+				8D03DFA226AE1C6B00F25B57 /* Network.swift in Sources */,
 				8DDE4A5926AD58D9006F9461 /* SearchResultViewController.swift in Sources */,
 				8DDB150A26ADA38400442288 /* ProductDetailViewModel.swift in Sources */,
 				8DDB150826ADA37600442288 /* ProductDetailViewController.swift in Sources */,

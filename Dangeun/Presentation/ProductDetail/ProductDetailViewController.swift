@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+/// 검색 결과 상세 뷰 컨트롤러
 class ProductDetailViewController: UIViewController {
 
     var viewModel: ProductDetailViewModel
@@ -16,7 +17,8 @@ class ProductDetailViewController: UIViewController {
     var viewFirstLoaded = PublishRelay<Void>()
     let disposeBag = DisposeBag()
 
-    let productImage: CustomImageView = {
+    // MARK: - views
+    lazy var productImage: CustomImageView = {
         let iv = CustomImageView()
         iv.contentMode = .scaleAspectFill
         iv.layer.masksToBounds = true
@@ -96,7 +98,27 @@ class ProductDetailViewController: UIViewController {
         viewFirstLoaded.accept(())
     }
 
-    func configureUI() {
+    private func bind() {
+        let input = ProductDetailViewModel.Input(viewFirstLoaded: viewFirstLoaded)
+        let output = viewModel.transform(input: input)
+
+        output.product.drive(onNext: { [weak self] product in
+            guard let self = self else { return }
+            self.nickNameLabel.text = product.nickName
+            self.locationLabel.text = product.location
+
+            self.titleLabel.text = product.title
+            self.contentLabel.text = product.content
+            self.productImage.loadImage(from: product.images[0])
+
+            self.priceLabel.text = "가격 \(product.price)"
+        }).disposed(by: disposeBag)
+    }
+}
+
+extension ProductDetailViewController {
+
+    private func configureUI() {
         self.view.backgroundColor = .white
 
         navigationController?.navigationBar.isTranslucent = true
@@ -133,7 +155,6 @@ class ProductDetailViewController: UIViewController {
             , productView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -20)
         ])
 
-
         userView.addSubview(userIcon)
         userIcon.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -168,20 +189,4 @@ class ProductDetailViewController: UIViewController {
         priceLabel.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
     }
 
-    func bind() {
-        let input = ProductDetailViewModel.Input(viewFirstLoaded: viewFirstLoaded)
-        let output = viewModel.transform(input: input)
-
-        output.product.drive(onNext: { [weak self] product in
-            guard let self = self else { return }
-            self.nickNameLabel.text = product.nickName
-            self.locationLabel.text = product.location
-
-            self.titleLabel.text = product.title
-            self.contentLabel.text = product.content
-            self.productImage.loadImage(from: product.images[0])
-
-            self.priceLabel.text = "가격 \(product.price)"
-        }).disposed(by: disposeBag)
-    }
 }

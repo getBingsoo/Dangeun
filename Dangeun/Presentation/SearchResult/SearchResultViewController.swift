@@ -9,11 +9,13 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+/// 검색 결과 리스트 뷰 컨트롤러
 class SearchResultViewController: UIViewController {
 
     var coordinator: HomeCoordinator
     var viewModel: SearchViewModel
     let disposeBag = DisposeBag()
+
     let tableView = UITableView()
 
     init(coordinator: HomeCoordinator, viewModel: SearchViewModel) {
@@ -53,8 +55,6 @@ extension SearchResultViewController {
             , tableView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor)
             , tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
         ])
-
-        tableView.register(ProductCell.self, forCellReuseIdentifier: ProductCell.reuseIdentifier)
     }
 
     private func setTableView() {

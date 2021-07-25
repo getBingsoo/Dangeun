@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+/// 메인 뷰 컨트롤러
 class HomeViewController: UIViewController {
 
     var coordinator: HomeCoordinator
@@ -17,6 +18,7 @@ class HomeViewController: UIViewController {
 
     let tableView = UITableView()
 
+    // MARK: - views
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 20)
@@ -34,6 +36,7 @@ class HomeViewController: UIViewController {
         return stackView
     }()
 
+    // MARK: - lifecycle
     init(coordinator: HomeCoordinator) {
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
@@ -51,6 +54,7 @@ class HomeViewController: UIViewController {
         bind()
     }
 
+    // MARK: - methods
     private func bind() {
         let input = HomeViewModel.Input()
         let output = viewModel.transform(input: input)
@@ -99,7 +103,6 @@ extension HomeViewController {
             menuButton.setImage(UIImage(systemName: "list.dash")!, for: .normal)
             alarmButton.setImage(UIImage(systemName: "bell")!, for: .normal)
         } else {
-            // todo
         }
 
         buttons.addArrangedSubview(searchButton)

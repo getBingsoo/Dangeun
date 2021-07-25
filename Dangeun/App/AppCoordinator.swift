@@ -30,5 +30,4 @@ class AppCoordinator: Coordinator {
         window.makeKeyAndVisible()
         childCoordinators[0].start()
     }
-
 }
