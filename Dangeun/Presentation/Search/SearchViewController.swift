@@ -36,9 +36,12 @@ class SearchViewController: UIViewController {
         let input = SearchViewModel.Input(
             searchTrigger: searchBar.rx.searchButtonClicked.asDriver()
             , searchText: searchBar.rx.text.orEmpty.asDriver()
+            , resetTrigger: searchBar.rx.textDidBeginEditing.asDriver()
         )
 
-        let _ = viewModel.transform(input: input)
+        let output = viewModel.transform(input: input)
+
+        output.resultList.drive().disposed(by: disposeBag)
     }
 }
 

@@ -20,9 +20,21 @@ class SearchViewModel: ViewModelType {
         let search = input.searchTrigger.withLatestFrom(input.searchText) {
             return $1
         }
+        let reset = input.resetTrigger.map {
+            return ""
+        }
+        let resultTrigger = Driver.merge(search, reset)
 
-        let resultList = search.flatMap { [weak self] searchText -> Driver<[Product]> in
-            guard let self = self else { return Driver<[Product]>.empty() }
+        let resultList = resultTrigger.flatMap { [weak self] searchText -> Driver<[Product]> in
+            guard let self = self else {
+                return Driver<[Product]>.empty()
+            }
+
+            if searchText.isEmpty {
+                self.searchList.accept([])
+                return Driver<[Product]>.just([])
+            }
+
             let result = self.dataManager.fetchProducts(searchText: searchText).map { [weak self] list -> [Product] in
                 guard let self = self else { return [] }
                 self.searchList.accept(list)
@@ -30,6 +42,7 @@ class SearchViewModel: ViewModelType {
             }.asDriver(onErrorDriveWith: Driver<[Product]>.empty())
             return result
         }
+
         return Output(resultList: resultList)
     }
 }
@@ -38,6 +51,7 @@ extension SearchViewModel {
     struct Input {
         let searchTrigger: Driver<Void>
         let searchText: Driver<String>
+        let resetTrigger: Driver<Void>
     }
 
     struct Output {

@@ -33,7 +33,6 @@
 		D3DC46B626A8658800E2C7C6 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC46B526A8658800E2C7C6 /* AppCoordinator.swift */; };
 		D3DC46BD26A865C800E2C7C6 /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC46BC26A865C800E2C7C6 /* AppCoordinatorTests.swift */; };
 		D3DC46C526A8681C00E2C7C6 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC46C426A8681C00E2C7C6 /* HomeCoordinator.swift */; };
-		D3DC46DB26A8A1C100E2C7C6 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC46DA26A8A1C000E2C7C6 /* TopBarView.swift */; };
 		D3DC46E026A8A89E00E2C7C6 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC46DF26A8A89E00E2C7C6 /* ProductCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,7 +90,6 @@
 		D3DC46B526A8658800E2C7C6 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		D3DC46BC26A865C800E2C7C6 /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
 		D3DC46C426A8681C00E2C7C6 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
-		D3DC46DA26A8A1C000E2C7C6 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		D3DC46DF26A8A89E00E2C7C6 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		DAB48C41AD8F5295235C1570 /* Pods_Dangeun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dangeun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0ADE3FF305CBC9BA3B02E76 /* Pods-Dangeun.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dangeun.release.xcconfig"; path = "Target Support Files/Pods-Dangeun/Pods-Dangeun.release.xcconfig"; sourceTree = "<group>"; };
@@ -279,7 +277,6 @@
 			children = (
 				D3DC466926A8548100E2C7C6 /* HomeViewController.swift */,
 				D3DC46C426A8681C00E2C7C6 /* HomeCoordinator.swift */,
-				D3DC46DA26A8A1C000E2C7C6 /* TopBarView.swift */,
 				D3DC46DF26A8A89E00E2C7C6 /* ProductCell.swift */,
 				8D484F3426AC1A1A009F1B54 /* HomeViewModel.swift */,
 			);
@@ -550,7 +547,6 @@
 				8DDE4A5926AD58D9006F9461 /* SearchResultViewController.swift in Sources */,
 				8DDE4A5426AD3588006F9461 /* SearchViewController.swift in Sources */,
 				8D484F2F26AC19C6009F1B54 /* ViewModelType.swift in Sources */,
-				D3DC46DB26A8A1C100E2C7C6 /* TopBarView.swift in Sources */,
 				D3DC46E026A8A89E00E2C7C6 /* ProductCell.swift in Sources */,
 				8DDE4A5626AD440A006F9461 /* SearchViewModel.swift in Sources */,
 				D3DC46B126A8652400E2C7C6 /* Coordinator.swift in Sources */,

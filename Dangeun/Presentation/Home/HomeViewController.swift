@@ -15,8 +15,24 @@ class HomeViewController: UIViewController {
     let viewModel = HomeViewModel()
     let disposeBag = DisposeBag()
 
-    let topBar = TopBarView()
     let tableView = UITableView()
+
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = .boldSystemFont(ofSize: 20)
+        label.text = "역삼1동"
+        return label
+    }()
+
+    let buttons: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 10
+
+        return stackView
+    }()
 
     init(coordinator: HomeCoordinator) {
         self.coordinator = coordinator
@@ -60,23 +76,40 @@ extension HomeViewController {
         self.view.backgroundColor = .white
 //        self.navigationController?.isNavigationBarHidden = true
 
-        self.view.addSubview(topBar)
-        topBar.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            topBar.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor)
-            , topBar.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor)
-            , topBar.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor)
-            , topBar.heightAnchor.constraint(equalToConstant: 40)
-        ])
-
         self.view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: topBar.bottomAnchor, constant: 10)
+            tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10)
             , tableView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 10)
             , tableView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: 10)
             , tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
         ])
+
+        // navigation items
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: titleLabel)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: buttons)
+
+        // add navigation buttons
+        let searchButton = UIButton()
+        let menuButton = UIButton()
+        let alarmButton = UIButton()
+        if #available(iOS 13.0, *) {
+            searchButton.setImage(UIImage(systemName: "magnifyingglass")!, for: .normal)
+            menuButton.setImage(UIImage(systemName: "list.dash")!, for: .normal)
+            alarmButton.setImage(UIImage(systemName: "bell")!, for: .normal)
+        } else {
+            // todo
+        }
+
+        buttons.addArrangedSubview(searchButton)
+        buttons.addArrangedSubview(menuButton)
+        buttons.addArrangedSubview(alarmButton)
+
+        searchButton.addTarget(self, action: #selector(searchButtonTouched), for: .touchUpInside)
+    }
+
+    @objc func searchButtonTouched() {
+        self.moveSearchVC()
     }
 
     private func setTableView() {
