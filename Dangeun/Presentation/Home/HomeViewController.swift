@@ -11,11 +11,21 @@ import RxCocoa
 
 class HomeViewController: UIViewController {
 
+    var coordinator: HomeCoordinator
     let viewModel = HomeViewModel()
     let disposeBag = DisposeBag()
 
     let topBar = TopBarView()
     let tableView = UITableView()
+
+    init(coordinator: HomeCoordinator) {
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,13 +49,16 @@ class HomeViewController: UIViewController {
         }.disposed(by: disposeBag)
     }
 
+    func moveSearchVC() {
+        coordinator.moveSearchVC()
+    }
 }
 
 extension HomeViewController {
 
     private func configureUI() {
         self.view.backgroundColor = .white
-        self.navigationController?.isNavigationBarHidden = true
+//        self.navigationController?.isNavigationBarHidden = true
 
         self.view.addSubview(topBar)
         topBar.translatesAutoresizingMaskIntoConstraints = false

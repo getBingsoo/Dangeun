@@ -33,11 +33,11 @@ class DataManager {
 //        }
 //    }
 
-    func fetchProducts() -> Observable<[Product]> {
+    func fetchProducts(searchText: String = "") -> Observable<[Product]> {
 
         return Observable.create { observer -> Disposable in
 
-            let urlString = "https://www.daangn.com/search/냉장고"
+            let urlString = "https://www.daangn.com/search/\(searchText)"
             let encodedString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
 
             if let url = URL(string: encodedString) {

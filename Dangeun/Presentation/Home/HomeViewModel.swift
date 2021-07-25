@@ -13,7 +13,7 @@ class HomeViewModel: ViewModelType {
     let dataManager = DataManager()
 
     func transform(input: Input) -> Output {
-        let products = dataManager.fetchProducts().asDriver(onErrorDriveWith: Driver<[Product]>.empty())
+        let products = dataManager.fetchProducts(searchText: "자전거").asDriver(onErrorDriveWith: Driver<[Product]>.empty())
 
         return Output(
             products: products

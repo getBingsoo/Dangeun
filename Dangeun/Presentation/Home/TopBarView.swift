@@ -53,20 +53,27 @@ class TopBarView: UIView {
         ])
 
         // add buttons
-        let button1 = UIButton()
-        let button2 = UIButton()
-        let button3 = UIButton()
+        let searchButton = UIButton()
+        let menuButton = UIButton()
+        let alarmButton = UIButton()
         if #available(iOS 13.0, *) {
-            button1.setImage(UIImage(systemName: "magnifyingglass")!, for: .normal)
-            button2.setImage(UIImage(systemName: "magnifyingglass")!, for: .normal)
-            button3.setImage(UIImage(systemName: "magnifyingglass")!, for: .normal)
+            searchButton.setImage(UIImage(systemName: "magnifyingglass")!, for: .normal)
+            menuButton.setImage(UIImage(systemName: "list.dash")!, for: .normal)
+            alarmButton.setImage(UIImage(systemName: "bell")!, for: .normal)
         } else {
-            // Fallback on earlier versions
+            // todo
         }
 
-        buttons.addArrangedSubview(button1)
-        buttons.addArrangedSubview(button2)
-        buttons.addArrangedSubview(button3)
+        buttons.addArrangedSubview(searchButton)
+        buttons.addArrangedSubview(menuButton)
+        buttons.addArrangedSubview(alarmButton)
 
+        searchButton.addTarget(self, action: #selector(searchButtonTouched), for: .touchUpInside)
+    }
+
+    @objc func searchButtonTouched() {
+        if let parentVC = parentViewController as? HomeViewController {
+            parentVC.moveSearchVC()
+        }
     }
 }

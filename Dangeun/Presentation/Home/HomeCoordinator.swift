@@ -18,7 +18,12 @@ class HomeCoordinator: Coordinator {
     }
 
     func start() {
-        let vc = HomeViewController()
+        let vc = HomeViewController(coordinator: self)
+        navigationController.pushViewController(vc, animated: true)
+    }
+
+    func moveSearchVC() {
+        let vc = SearchViewController()
         navigationController.pushViewController(vc, animated: true)
     }
 }
