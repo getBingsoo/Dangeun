@@ -11,6 +11,7 @@ class HomeCoordinator: Coordinator {
 
     var childCoordinators: [Coordinator]
     var navigationController: UINavigationController
+    var searchViewModel: SearchViewModel?
 
     init(navigationController: UINavigationController) {
         self.childCoordinators = []
@@ -23,7 +24,14 @@ class HomeCoordinator: Coordinator {
     }
 
     func moveSearchVC() {
-        let vc = SearchViewController()
+        searchViewModel = SearchViewModel()
+        guard let searchViewModel = searchViewModel else { return }
+
+        let vc = SearchViewController(viewModel: searchViewModel)
         navigationController.pushViewController(vc, animated: true)
+
+        let searchController = UISearchController(searchResultsController: SearchResultViewController(viewModel: searchViewModel))
+        vc.navigationItem.searchController = searchController
+        searchController.searchBar.placeholder = "검색어를 입력하세요."
     }
 }
