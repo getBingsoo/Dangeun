@@ -30,8 +30,14 @@ class HomeCoordinator: Coordinator {
         let vc = SearchViewController(viewModel: searchViewModel)
         navigationController.pushViewController(vc, animated: true)
 
-        let searchController = UISearchController(searchResultsController: SearchResultViewController(viewModel: searchViewModel))
+        let searchController = UISearchController(searchResultsController: SearchResultViewController(coordinator: self, viewModel: searchViewModel))
         vc.navigationItem.searchController = searchController
         searchController.searchBar.placeholder = "검색어를 입력하세요."
+    }
+
+    func moveDetailVC(product: Product) {
+        let vm = ProductDetailViewModel(product: product)
+        let vc = ProductDetailViewController(viewModel: vm)
+        navigationController.pushViewController(vc, animated: true)
     }
 }

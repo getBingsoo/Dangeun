@@ -26,6 +26,8 @@ class ProductCell: UITableViewCell {
     }
 
     private func configureUI() {
+        self.selectionStyle = .none
+        
         contentView.addSubview(productImage)
         productImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

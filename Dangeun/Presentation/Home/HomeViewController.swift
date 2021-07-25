@@ -118,6 +118,10 @@ extension HomeViewController {
             , forCellReuseIdentifier: ProductCell.reuseIdentifier
         )
 
+        tableView.rx.modelSelected(Product.self).asDriver().drive(onNext: { [weak self] product in
+            self?.coordinator.moveDetailVC(product: product)
+        }).disposed(by: disposeBag)
+
         tableView.rowHeight = 120
     }
 }

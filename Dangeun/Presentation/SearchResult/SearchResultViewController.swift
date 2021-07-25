@@ -11,11 +11,13 @@ import RxCocoa
 
 class SearchResultViewController: UIViewController {
 
+    var coordinator: HomeCoordinator
     var viewModel: SearchViewModel
     let disposeBag = DisposeBag()
     let tableView = UITableView()
 
-    init(viewModel: SearchViewModel) {
+    init(coordinator: HomeCoordinator, viewModel: SearchViewModel) {
+        self.coordinator = coordinator
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -60,6 +62,10 @@ extension SearchResultViewController {
             ProductCell.self
             , forCellReuseIdentifier: ProductCell.reuseIdentifier
         )
+
+        tableView.rx.modelSelected(Product.self).asDriver().drive(onNext: { [weak self] product in
+            self?.coordinator.moveDetailVC(product: product)
+        }).disposed(by: disposeBag)
 
         tableView.rowHeight = 120
     }
