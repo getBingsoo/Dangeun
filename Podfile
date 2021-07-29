@@ -9,6 +9,7 @@ target 'Dangeun' do
   pod 'RxSwift'
   pod 'RxCocoa'  
   pod 'SwiftSoup'
+  pod 'Then'
 
   target 'DangeunTests' do
     inherit! :search_paths
