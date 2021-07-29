@@ -13,24 +13,18 @@ class ProductCell: UITableViewCell {
 
     // MARK: - views
     let productImage = CustomImageView()
-    lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 16)
-        return label
-    }()
+    let titleLabel = UILabel().then {
+        $0.font = .systemFont(ofSize: 16)
+    }
 
-    lazy var locationLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 14)
-        label.textColor = .gray
-        return label
-    }()
+    let locationLabel = UILabel().then {
+        $0.font = .systemFont(ofSize: 14)
+        $0.textColor = .gray
+    }
 
-    lazy var priceLabel: UILabel = {
-        let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 15)
-        return label
-    }()
+    let priceLabel = UILabel().then {
+        $0.font = .boldSystemFont(ofSize: 15)
+    }
 
     // MARK: - lifecycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

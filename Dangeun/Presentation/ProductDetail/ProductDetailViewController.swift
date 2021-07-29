@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Then
 
 /// 검색 결과 상세 뷰 컨트롤러
 class ProductDetailViewController: UIViewController {
@@ -18,67 +19,48 @@ class ProductDetailViewController: UIViewController {
     let disposeBag = DisposeBag()
 
     // MARK: - views
-    lazy var productImage: CustomImageView = {
-        let iv = CustomImageView()
-        iv.contentMode = .scaleAspectFill
-        iv.layer.masksToBounds = true
-        return iv
-    }()
+    let productImage = CustomImageView().then {
+        $0.contentMode = .scaleAspectFill
+        $0.layer.masksToBounds = true
+    }
 
-    lazy var userIcon: UIImageView = {
-        let iv = UIImageView()
-        iv.backgroundColor = .lightGray
-        iv.layer.cornerRadius = 20
-        return iv
-    }()
+    let userIcon = UIImageView().then {
+        $0.backgroundColor = .lightGray
+        $0.layer.cornerRadius = 20
+    }
 
-    lazy var nickNameLabel: UILabel = {
-        let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 16)
-        label.numberOfLines = 0
-        return label
-    }()
+    let nickNameLabel = UILabel().then {
+        $0.font = .boldSystemFont(ofSize: 16)
+        $0.numberOfLines = 0
+    }
 
-    lazy var locationLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 14)
-        label.numberOfLines = 0
-        return label
-    }()
+    let locationLabel = UILabel().then {
+        $0.font = .systemFont(ofSize: 14)
+        $0.numberOfLines = 0
+    }
 
-    lazy var userView: UIView = {
-        let view = UIView()
-        return view
-    }()
+    let userView = UIView()
 
-    lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 18)
-        label.numberOfLines = 0
-        return label
-    }()
+    let titleLabel = UILabel().then {
+        $0.font = .boldSystemFont(ofSize: 18)
+        $0.numberOfLines = 0
+    }
 
-    lazy var contentLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 15)
-        label.numberOfLines = 0
-        return label
-    }()
+    let contentLabel = UILabel().then {
+        $0.font = .systemFont(ofSize: 15)
+        $0.numberOfLines = 0
+    }
 
-    lazy var priceLabel: UILabel = {
-        let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 15)
-        label.numberOfLines = 0
-        return label
-    }()
+    let priceLabel = UILabel().then {
+        $0.font = .boldSystemFont(ofSize: 15)
+        $0.numberOfLines = 0
+    }
 
-    lazy var productView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.distribution = .fill
-        stackView.spacing = 10
-        return stackView
-    }()
+    let productView = UIStackView().then {
+        $0.axis = .vertical
+        $0.distribution = .fill
+        $0.spacing = 10
+    }
 
     init(viewModel: ProductDetailViewModel) {
         self.viewModel = viewModel

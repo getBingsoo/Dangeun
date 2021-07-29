@@ -19,22 +19,17 @@ class HomeViewController: UIViewController {
     let tableView = UITableView()
 
     // MARK: - views
-    let titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 20)
-        label.text = "역삼1동"
-        return label
-    }()
+    let titleLabel = UILabel().then {
+        $0.font = .boldSystemFont(ofSize: 20)
+        $0.text = "역삼1동"
+    }
 
-    let buttons: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        stackView.distribution = .equalSpacing
-        stackView.spacing = 10
-
-        return stackView
-    }()
+    let buttons = UIStackView().then {
+        $0.axis = .horizontal
+        $0.alignment = .center
+        $0.distribution = .equalSpacing
+        $0.spacing = 10
+    }
 
     // MARK: - lifecycle
     init(coordinator: HomeCoordinator) {
